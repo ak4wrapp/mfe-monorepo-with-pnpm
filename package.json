@@ -1,0 +1,26 @@
+{
+  "name": "react19-mfe-monorepo",
+  "private": true,
+  "packageManager": "pnpm@8.6.6",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "build:atlas": "pnpm --filter atlas build",
+    "build:nova": "pnpm --filter nova build",
+    "build:shell": "pnpm --filter shell build",
+    "preview:atlas": "pnpm --filter atlas preview",
+    "preview:nova": "pnpm --filter nova preview",
+    "preview:shell": "pnpm --filter shell preview",
+    "dev:atlas": "pnpm --filter atlas dev",
+    "dev:nova": "pnpm --filter nova dev",
+    "dev:shell": "pnpm --filter shell dev"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
+      "typescript": "~5.9.3",
+      "vite": "^7.2.4"
+    }
+  }
+}
