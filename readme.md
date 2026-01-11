@@ -1,3 +1,7 @@
+# Demo
+
+https://mfe-monorepo-with-pnpm-shell.vercel.app/
+
 Since we want to load mfe_akt and mfe_rk as MFE, they will only load when we build and preview not just run application.
 
 1. Run pnpm commands to build both MFE
