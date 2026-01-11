@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@packages/ui": "*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

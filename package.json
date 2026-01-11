@@ -1,5 +1,5 @@
 {
-  "name": "react19-mfe-monorepo",
+  "name": "mfe-monorepo-with-pnpm",
   "private": true,
   "packageManager": "pnpm@8.6.6",
   "scripts": {

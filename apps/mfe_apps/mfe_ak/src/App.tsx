@@ -1,4 +1,5 @@
 import React from "react";
+import { CustomButton } from "@packages/ui";
 
 const thStyle: React.CSSProperties = {
   border: "1px solid #ddd",
@@ -12,6 +13,24 @@ const tdStyle: React.CSSProperties = {
 };
 
 export default function AKApp() {
+  const projects = [
+    {
+      id: 1,
+      name: "React Concepts Made Easy",
+      url: "https://ak-react-concepts-made-easy.vercel.app/",
+    },
+    {
+      id: 2,
+      name: "Metadata Driven Dynamic Forms",
+      url: "https://metadata-driven-dynamic-forms.vercel.app/",
+    },
+    {
+      id: 3,
+      name: "MFE Monorepo with PNPM",
+      url: "https://mfe-monorepo-with-pnpm-shell.vercel.app/",
+    },
+  ];
+
   return (
     <>
       <h2>Hello from AK!!</h2>
@@ -32,47 +51,19 @@ export default function AKApp() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td style={tdStyle}>1</td>
-            <td style={tdStyle}>React Concepts Made Easy</td>
-            <td style={tdStyle}>
-              <a
-                href="https://ak-react-concepts-made-easy.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style={tdStyle}>2</td>
-            <td style={tdStyle}>Metadata Driven Dynamic Forms</td>
-            <td style={tdStyle}>
-              <a
-                href="https://metadata-driven-dynamic-forms.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style={tdStyle}>3</td>
-            <td style={tdStyle}>MFE Monorepo with PNPM</td>
-            <td style={tdStyle}>
-              <a
-                href="https://mfe-monorepo-with-pnpm-shell.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit
-              </a>
-            </td>
-          </tr>
+          {projects.map((project) => (
+            <tr key={project.id}>
+              <td style={tdStyle}>{project.id}</td>
+              <td style={tdStyle}>{project.name}</td>
+              <td style={tdStyle}>
+                <CustomButton
+                  onClick={() => window.open(project.url, "_blank")}
+                >
+                  Visit
+                </CustomButton>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>
