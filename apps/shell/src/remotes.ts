@@ -1,26 +1,11 @@
-// // src/remotes.ts
-// export default function getRemotes(mode: string) {
-//   return {
-//     development: {
-//       atlas: "http://localhost:5174/atlas/remoteEntry.v1.js",
-//       nova: "http://localhost:5175/nova/remoteEntry.v1.js",
-//     },
-//     production: {
-//       atlas: "/atlas/remoteEntry.v1.js",
-//       nova: "/nova/remoteEntry.v1.js",
-//     },
-//   }[mode];
-// }
+export default function getRemotes(env: Record<string, string>) {
+  const atlas: string = env.VITE_ATLAS_REMOTE_URL;
+  const nova: string = env.VITE_NOVA_REMOTE_URL;
 
-export default function getRemotes(mode: string) {
+  console.log("Configured Remotes - Atlas:", atlas);
+  console.log("Configured Remotes - Nova:", nova);
   return {
-    development: {
-      atlas: "http://localhost:5174/assets/remoteEntry.v1.js",
-      nova: "http://localhost:5175/assets/remoteEntry.v1.js",
-    },
-    production: {
-      atlas: "/atlas/assets/remoteEntry.v1.js",
-      nova: "/nova/assets/remoteEntry.v1.js",
-    },
-  }[mode];
+    atlas: atlas,
+    nova: nova,
+  };
 }
