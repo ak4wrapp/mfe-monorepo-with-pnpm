@@ -1,9 +1,9 @@
 {
-  "name": "atlas",
+  "name": "mfe_rk",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port 5174",
+    "dev": "vite --port 5175",
     "build": "vite build",
     "preview": "vite preview"
   },

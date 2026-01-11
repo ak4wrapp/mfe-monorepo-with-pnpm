@@ -9,8 +9,8 @@ You want to verify this will work:
 
 ```ts
 production: {
-  atlas: "/atlas/assets/remoteEntry.v1.js",
-  nova: "/nova/assets/remoteEntry.v1.js",
+  mfe_ak: "/mfe_ak/assets/remoteEntry.v1.js",
+  mfe_rk: "/mfe_rk/assets/remoteEntry.v1.js",
 },
 ```
 
@@ -19,15 +19,15 @@ production: {
 It assumes **one of these is true**:
 
 ```
-https://your-domain.com/atlas/assets/remoteEntry.v1.js
-https://your-domain.com/nova/assets/remoteEntry.v1.js
+https://your-domain.com/mfe_ak/assets/remoteEntry.v1.js
+https://your-domain.com/mfe_rk/assets/remoteEntry.v1.js
 ```
 
 Meaning:
 
 - Shell is hosted at `/`
-- Atlas build is hosted at `/atlas`
-- Nova build is hosted at `/nova`
+- mfe_ak build is hosted at `/mfe_ak`
+- mfe_rk build is hosted at `/mfe_rk`
 
 ---
 
@@ -42,8 +42,8 @@ pnpm build
 This builds:
 
 - `apps/shell/dist`
-- `apps/atlas/dist`
-- `apps/nova/dist`
+- `apps/mfe_ak/dist`
+- `apps/mfe_rk/dist`
 
 ---
 
@@ -52,14 +52,14 @@ This builds:
 From repo root:
 
 ```bash
-mkdir -p prod/atlas prod/nova
+mkdir -p prod/mfe_ak prod/mfe_rk
 ```
 
 Then copy builds:
 
 ```bash
-cp -r apps/atlas/dist/* prod/atlas/
-cp -r apps/nova/dist/* prod/nova/
+cp -r apps/mfe_ak/dist/* prod/mfe_ak/
+cp -r apps/mfe_rk/dist/* prod/mfe_rk/
 cp -r apps/shell/dist/* prod/
 ```
 
@@ -69,10 +69,10 @@ Your structure should be:
 prod/
 ├── index.html          ← shell
 ├── assets/
-├── atlas/
+├── mfe_ak/
 │   └── assets/
 │       └── remoteEntry.v1.js
-├── nova/
+├── mfe_rk/
 │   └── assets/
 │       └── remoteEntry.v1.js
 ```
@@ -91,8 +91,8 @@ Now open:
 
 ```
 http://localhost:5173
-http://localhost:5173/atlas
-http://localhost:5173/nova
+http://localhost:5173/mfe_ak
+http://localhost:5173/mfe_rk
 ```
 
 ✅ If both remotes load → **production config is correct**
@@ -109,7 +109,7 @@ You _can_ do:
 pnpm preview:shell
 ```
 
-But ⚠️ this does **not** simulate shared hosting with `/atlas` and `/nova`.
+But ⚠️ this does **not** simulate shared hosting with `/mfe_ak` and `/mfe_rk`.
 
 Use the **single static server** approach above for confidence.
 
@@ -142,7 +142,7 @@ This is a **clean monorepo setup**.
 ```json
 "scripts": {
   "prod:serve": "pnpm build && pnpm prod:copy && pnpm prod:run",
-  "prod:copy": "rm -rf prod && mkdir -p prod/atlas prod/nova && cp -r apps/atlas/dist/* prod/atlas/ && cp -r apps/nova/dist/* prod/nova/ && cp -r apps/shell/dist/* prod/",
+  "prod:copy": "rm -rf prod && mkdir -p prod/mfe_ak prod/mfe_rk && cp -r apps/mfe_ak/dist/* prod/mfe_ak/ && cp -r apps/mfe_rk/dist/* prod/mfe_rk/ && cp -r apps/shell/dist/* prod/",
   "prod:run": "pnpm dlx serve prod -l 5173"
 }
 ```

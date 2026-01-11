@@ -1,11 +1,11 @@
 export default function getRemotes(env: Record<string, string>) {
-  const atlas: string = env.VITE_ATLAS_REMOTE_URL;
-  const nova: string = env.VITE_NOVA_REMOTE_URL;
+  const mfe_ak: string = env.VITE_mfe_ak_REMOTE_URL;
+  const mfe_rk: string = env.VITE_mfe_rk_REMOTE_URL;
 
-  console.log("Configured Remotes - Atlas:", atlas);
-  console.log("Configured Remotes - Nova:", nova);
+  console.log("Configured Remotes - mfe_ak:", mfe_ak);
+  console.log("Configured Remotes - mfe_rk:", mfe_rk);
   return {
-    atlas: atlas,
-    nova: nova,
+    mfe_ak: mfe_ak,
+    mfe_rk: mfe_rk,
   };
 }

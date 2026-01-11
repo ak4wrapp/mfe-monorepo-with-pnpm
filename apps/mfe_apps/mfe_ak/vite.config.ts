@@ -6,7 +6,7 @@ import federation from "@originjs/vite-plugin-federation";
 //   plugins: [
 //     react(),
 //     federation({
-//       name: "atlas",
+//       name: "mfe_ak",
 //       filename: "remoteEntry.v1.js",
 //       exposes: {
 //         "./App": "./src/App.tsx",
@@ -28,7 +28,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "atlas",
+      name: "mfe_ak",
       filename: "remoteEntry.v1.js",
       exposes: {
         "./App": "./src/App.tsx",

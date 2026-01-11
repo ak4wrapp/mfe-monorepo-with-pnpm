@@ -1,11 +1,11 @@
-declare module "atlas/App" {
+declare module "mfe_ak/App" {
   import { ComponentType } from "react";
-  const AtlasApp: ComponentType;
-  export default AtlasApp;
+  const mfe_akApp: ComponentType;
+  export default mfe_akApp;
 }
 
-declare module "nova/App" {
+declare module "mfe_rk/App" {
   import { ComponentType } from "react";
-  const NovaApp: ComponentType;
-  export default NovaApp;
+  const mfe_rkApp: ComponentType;
+  export default mfe_rkApp;
 }

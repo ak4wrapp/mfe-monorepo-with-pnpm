@@ -2,8 +2,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
-const AtlasApp = lazy(() => import("atlas/App"));
-const NovaApp = lazy(() => import("nova/App"));
+const AKApp = lazy(() => import("mfe_ak/App"));
+const RKApp = lazy(() => import("mfe_rk/App"));
 
 export default function App() {
   return (
@@ -18,15 +18,15 @@ export default function App() {
                 <br />
                 Use the following routes to load remotes:
                 <br />
-                <a href="/atlas">/atlas</a> - to load Atlas remote app
+                <a href="/mfe_ak">/mfe_ak</a> - to load mfe_ak remote app
                 <br />
-                <a href="/nova">/nova</a> - to load Nova remote app
+                <a href="/mfe_rk">/mfe_rk</a> - to load mfe_rk remote app
                 <br />
               </div>
             }
           />
-          <Route path="/atlas/*" element={<AtlasApp />} />
-          <Route path="/nova/*" element={<NovaApp />} />
+          <Route path="/mfe_ak/*" element={<AKApp />} />
+          <Route path="/mfe_rk/*" element={<RKApp />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

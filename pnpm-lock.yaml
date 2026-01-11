@@ -14,7 +14,7 @@ importers:
 
   .: {}
 
-  apps/atlas:
+  apps/mfe_apps/mfe_ak:
     dependencies:
       react:
         specifier: ^19.0.0
@@ -63,7 +63,7 @@ importers:
         specifier: ^7.2.4
         version: 7.2.4(@types/node@24.10.1)
 
-  apps/nova:
+  apps/mfe_apps/mfe_rk:
     dependencies:
       react:
         specifier: ^19.0.0

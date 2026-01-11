@@ -3,24 +3,24 @@
 You want to verify this will work:
 
 production: {
-atlas: "/atlas/assets/remoteEntry.v1.js",
-nova: "/nova/assets/remoteEntry.v1.js",
+mfe_ak: "/mfe_ak/assets/remoteEntry.v1.js",
+mfe_rk: "/mfe_rk/assets/remoteEntry.v1.js",
 },
 
 🧠 What this assumes in production
 
 It assumes one of these is true:
 
-https://your-domain.com/atlas/assets/remoteEntry.v1.js
-https://your-domain.com/nova/assets/remoteEntry.v1.js
+https://your-domain.com/mfe_ak/assets/remoteEntry.v1.js
+https://your-domain.com/mfe_rk/assets/remoteEntry.v1.js
 
 Meaning:
 
 Shell is hosted at /
 
-Atlas build is hosted at /atlas
+mfe_ak build is hosted at /mfe_ak
 
-Nova build is hosted at /nova
+mfe_rk build is hosted at /mfe_rk
 
 ✅ Easiest way to test this LOCALLY (recommended)
 Step 1 — Build everything
@@ -30,20 +30,20 @@ This builds:
 
 apps/shell/dist
 
-apps/atlas/dist
+apps/mfe_ak/dist
 
-apps/nova/dist
+apps/mfe_rk/dist
 
 Step 2 — Create a fake “prod” folder
 
 From repo root:
 
-mkdir -p prod/atlas prod/nova
+mkdir -p prod/mfe_ak prod/mfe_rk
 
 Then copy builds:
 
-cp -r apps/atlas/dist/_ prod/atlas/
-cp -r apps/nova/dist/_ prod/nova/
+cp -r apps/mfe*ak/dist/* prod/mfe*ak/
+cp -r apps/mfe_rk/dist/* prod/mfe_rk/
 cp -r apps/shell/dist/\* prod/
 
 Your structure should be:
@@ -51,10 +51,10 @@ Your structure should be:
 prod/
 ├── index.html ← shell
 ├── assets/
-├── atlas/
+├── mfe_ak/
 │ └── assets/
 │ └── remoteEntry.v1.js
-├── nova/
+├── mfe_rk/
 │ └── assets/
 │ └── remoteEntry.v1.js
 
@@ -68,8 +68,8 @@ pnpm dlx serve prod -l 5173
 Now open:
 
 http://localhost:5173
-http://localhost:5173/atlas
-http://localhost:5173/nova
+http://localhost:5173/mfe_ak
+http://localhost:5173/mfe_rk
 
 ✅ If both remotes load → production config is correct
 
