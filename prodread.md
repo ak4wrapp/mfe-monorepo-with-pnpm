@@ -3,6 +3,8 @@ Everything you’ve shown looks **correct and well thought out**. Let’s answer
 
 ## All Good - Deployed
 
+git diff $VERCEL_GIT_PREVIOUS_SHA HEAD --quiet -- .
+
 # ✅ 1. How to test the **production remotes paths**
 
 You want to verify this will work:
