@@ -27,6 +27,8 @@ export default function App() {
           />
           <Route path="/mfe_ak/*" element={<AKApp />} />
           <Route path="/mfe_rk/*" element={<RKApp />} />
+          <Route path="test" element={<div>Test Route Works!</div>} />
+          <Route path="test_route" element={<div>Test Route Works!</div>} />
         </Routes>
       </Suspense>
     </BrowserRouter>
