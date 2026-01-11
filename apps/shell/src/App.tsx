@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { lazy } from "react";
 import React from "react";
 import { CustomButton } from "@packages/ui";
-import { RemoteComponentWrapper } from "./RemoteComponentWrapper";
+import { RemoteComponentWrapper } from "./components/RemoteComponentWrapper";
+import { TestComponent } from "./components/TestComponent";
 
 // Lazy load remote MFEs
 const AKApp = lazy(() => import("mfe_ak/App"));
@@ -85,7 +86,7 @@ export default function App() {
         />
 
         {/* Local test route */}
-        <Route path="/test" element={<div>Test Route Works!</div>} />
+        <Route path="/test" element={<TestComponent />} />
       </Routes>
     </BrowserRouter>
   );
