@@ -3,6 +3,12 @@ import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
 export default defineConfig({
+  base: "/", // VERY IMPORTANT for Vercel,
+  build: {
+    target: "esnext",
+    outDir: "dist",
+    assetsDir: "assets",
+  },
   preview: {
     port: 5175,
     strictPort: true,
@@ -10,8 +16,8 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "mfe_ak",
-      filename: "remoteEntry.v1.js",
+      name: "mfe_rk",
+      filename: "remoteEntry.js", // ⚠️ avoid version suffix
       exposes: {
         "./App": "./src/App.tsx",
       },
