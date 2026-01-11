@@ -2,25 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
-// export default defineConfig({
-//   plugins: [
-//     react(),
-//     federation({
-//       name: "mfe_ak",
-//       filename: "remoteEntry.v1.js",
-//       exposes: {
-//         "./App": "./src/App.tsx",
-//       },
-//       shared: ["react", "react-dom"],
-//     }),
-//   ],
-//   build: {
-//     outDir: "dist",
-//     cssCodeSplit: false,
-//   },
-// });
-
 export default defineConfig({
+  base: "/", // VERY IMPORTANT for Vercel
+  build: {
+    target: "esnext",
+    outDir: "dist",
+    assetsDir: "assets",
+  },
   preview: {
     port: 5174,
     strictPort: true,
@@ -29,11 +17,14 @@ export default defineConfig({
     react(),
     federation({
       name: "mfe_ak",
-      filename: "remoteEntry.v1.js",
+      filename: "remoteEntry.js", // ⚠️ avoid version suffix
       exposes: {
         "./App": "./src/App.tsx",
       },
-      shared: ["react", "react-dom"],
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+      },
     }),
   ],
 });
